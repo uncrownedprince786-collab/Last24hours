@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --paper: #faf7f2;
+  --paper-deep: #f3eee4;
+  --ink: #141414;
+  --ink-soft: #3f3f3f;
+  --muted: #6b6660;
+  --line: #e2dacb;
+  --accent: #a31212;
+  --accent-soft: #f7e3dc;
+  --navy: #10243f;
+  --card: #ffffff;
+}
+
+.dark {
+  --paper: #101113;
+  --paper-deep: #181a1d;
+  --ink: #f2efe9;
+  --ink-soft: #e0ddd6;
+  --muted: #a29c92;
+  --line: #2c2e33;
+  --accent: #e5644a;
+  --accent-soft: #39201c;
+  --navy: #c7d3e4;
+  --card: #181b20;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-navy: var(--navy);
+  --color-card: var(--card);
+  --font-display: Georgia, "Times New Roman", "Noto Naskh Arabic", "Noto Nastaliq Urdu", "Geeza Pro", serif;
+  --font-body: system-ui, "Segoe UI", "Noto Naskh Arabic", "Noto Nastaliq Urdu", Roboto, Helvetica, Arial, sans-serif;
+  --font-urdu: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", "Lohit Urdu", "Geeza Pro", Georgia, serif;
+  --font-arabic: "Noto Naskh Arabic", "Amiri", "Traditional Arabic", "Geeza Pro", Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-urdu {
+  font-family: var(--font-urdu);
+}
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+.prose-story {
+  line-height: 1.75;
+  font-size: 1.0625rem;
+  color: var(--ink-soft);
+}
+.prose-story p + p {
+  margin-top: 1.1rem;
+}
+.prose-story strong {
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  color: var(--accent);
+}
+
+.masthead-links a {
+  letter-spacing: 0.01em;
+}
+
+.border-line {
+  border-color: var(--line);
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: -4rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.5rem 0.75rem;
+  z-index: 100;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0.5rem;
+}
+
+.lede-rule {
+  background: linear-gradient(to right, var(--accent), transparent);
+  height: 3px;
+}
+
+@keyframes caret {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
